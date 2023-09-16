@@ -13,7 +13,7 @@ def GPT(prompt, _):
     context.append({"role": "user", "content": prompt})
     print(context,len(context))
     completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo-16k",
         messages=context,
         temperature=0.1)
     context.append({"role":"assistant", "content":completion.choices[0].message.content})
