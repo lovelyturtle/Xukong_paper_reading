@@ -7,6 +7,18 @@ userAvatar.src = "bot.png";
 document.getElementById('conversation').style.display = 'block';
 appendMessage('bot', '你好，这里是"虚空 文献阅读助手！"');
 
+function loadPDF() {
+    const pdfInput = document.getElementById('pdf-input');
+    const pdfIframe = document.getElementById('pdf-iframe');
+    // 获取选择的文件
+    const selectedFile = pdfInput.files[0];
+    if (selectedFile) {
+    // 创建一个Blob URL以显示所选的PDF文件
+        const objectURL = URL.createObjectURL(selectedFile);
+        pdfIframe.src = objectURL;
+    }
+}
+
 function appendMessage(who, text) {
     const conversation = document.getElementById('conversation');
     const message = document.createElement('div');
